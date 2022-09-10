@@ -5,9 +5,9 @@
 }
 
 .contenedor {
-    background-color: tomato;
+    background-color: limegreen;
     width: 100%;
-    height: 600px;
+    height: calc(100px * 6);
 }
 
 .caja {
@@ -17,6 +17,9 @@
     width: calc((100% / 6) - 4px);
     float: left;
     text-align: center;
+    background-color: tomato;
+    border-radius: 10px;
+    padding: 40px;
 }
 
 @media screen and (max-width: 400px) and (max-width: 800px){
@@ -25,6 +28,9 @@
     }
     .caja {
         width: calc((100% / 3) - 4px);
+    }
+    .contenedor{
+        height: 625px
     }
 }
 
