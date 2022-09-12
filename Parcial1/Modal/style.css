@@ -1,0 +1,39 @@
+ul {
+    list-style: none;
+}
+
+ul > li > ul {
+    display: none;
+    padding: 10px;
+    margin: 10px;
+}
+
+/* ul > li:hover > ul {
+    display: block;
+} */
+
+ul > li > ul:target {
+    display: block;
+}
+
+ul > li {
+    background-color: greenyellow;
+}
+
+ul > li > ul > li {
+    background-color: tomato;
+}
+
+.Ventana_Modal {
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    background-color: powderblue;
+    text-align: center;
+}
+
+#ventanaModal:target {
+    z-index: 3;
+    opacity: 1;
+    pointer-events: all;
+}
