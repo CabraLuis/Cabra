@@ -1,0 +1,110 @@
+div.sidebar {
+    position: fixed;
+    background-color: palevioletred;
+    width: 200px;
+    height: 100%;
+    overflow: auto;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    padding: 5px;
+    color: black;
+}
+
+a:hover{
+    background-color: palegreen;
+    color: whitesmoke;
+}
+
+div.content {
+    background-color: palegoldenrod;
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1500px;
+    text-align: center;
+}
+
+@media screen and (max-width: 1200px) {
+    div.sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .sidebar a {
+        float: left;
+    }
+
+    div.content {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .sidebar a {
+        text-align: center;
+        float: none;
+    }
+}
+
+.contenedor-elementos {
+    background-color: rebeccapurple;
+}
+
+.subcontenedor {
+    background-color: blueviolet;
+    display: none;
+    padding-left: 0;
+}
+
+ul > li:hover > ul{
+    display: block;
+}
+
+.ventanaModal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: paleturquoise;
+    z-index: 99999;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.ventanaModal:target {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.ventanaModal > div {
+    width: 400px;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px;
+    border-radius: 10px;
+    background: white;
+}
+
+.botonAbrir:hover {
+    background-color: blue;
+    color: white;
+}
+
+.botonCerrar:hover {
+    background-color: blue;
+    color: white;
+}
+
+#info {
+    background-color: firebrick;
+    border: solid 2px black;
+    border-radius: 10px;
+}
