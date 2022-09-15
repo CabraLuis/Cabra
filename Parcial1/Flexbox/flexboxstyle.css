@@ -1,0 +1,57 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: limegreen;
+    width: 100vw;
+    height: 53px;
+}
+
+.caja {
+    background-color: #ff6347;
+    border: 2px black solid;
+    width: 100vw;
+    height: 50px;
+    margin: 1px;
+    text-align: center;
+    padding-top: 15px;
+}
+
+.caja:hover {
+    background-color: #db553e;
+    cursor: pointer;
+}
+
+
+
+
+/* #caja1 {
+    flex-grow: 1;
+}
+
+#caja2 {
+    flex-grow: 2;
+}
+
+#caja3 {
+    flex-grow: 3;
+}
+
+#caja4 {
+    flex-grow: 4;
+} */
+/* @media screen and (max-width: 400px) and (max-width: 800px){
+}
+
+@media screen and (max-width: 399px) {
+} */
+
+/* Tarea Investigar Propiedades Flexbox Padre e Hijo */

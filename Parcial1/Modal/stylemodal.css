@@ -69,10 +69,10 @@ ul > li:hover > ul{
 
 .ventanaModal {
     position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
     background-color: paleturquoise;
     z-index: 99999;
     opacity: 0;
@@ -91,16 +91,17 @@ ul > li:hover > ul{
     padding: 5px;
     border-radius: 10px;
     background: white;
+    text-align: center;
 }
 
 .botonAbrir:hover {
-    background-color: blue;
     color: white;
 }
 
 .botonCerrar:hover {
     background-color: blue;
     color: white;
+    text-align: center;
 }
 
 #info {
