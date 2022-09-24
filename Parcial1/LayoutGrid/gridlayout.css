@@ -24,6 +24,15 @@
     text-align: center;
 }
 
+#caja2:active {
+    transform: rotate(3deg);
+}
+
+#caja3:hover{
+    transform: scale(1.5);
+}
+
+
 #caja1 {
     grid-area: encabezado;
     background-color: violet;
