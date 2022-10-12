@@ -15,5 +15,16 @@
         <div class="caja" id="caja4">Contenido 3</div>
         <div class="caja" id="caja5">Pie de página</div>
     </div>
+    <script>
+            var elem = document.getElementById("cont")
+
+            elem.addEventListener('click', cambioCaja)
+            function cambioCaja(evento){
+                console.log(evento);
+                if(document.getElementById(evento.target.id).classList.contains("caja1")){
+                    document.getElementById(evento.target.id).classList.toggle("cajaEvento")
+                }
+            }
+    </script>
 </body>
 </html>
