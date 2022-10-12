@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="posicionamiento.css">
+    <title>Sidebar Posicionamiento</title>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="sidebar">
+            <ul>
+                <li>
+                    <a href="#opcion1" id="opc1">Opcion 1</a>
+                    <ul class="subcontenedor">
+                        <li>Opcion 1</li>
+                        <li>Opcion 2</li>
+                        <li>Opcion 3</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#opcion2" id="opc2">Opcion 2</a>
+                    <ul>
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="#opcion3" id="opc3">Opcion 3</a>
+                    <ul>
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="#opcion4" id="opc4">Opcion 4</a>
+                    <ul>
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <div class="content">
+            <button id="boton" onclick="alert('funcion 1')">Evento en Etiqueta</button>
+            <button id="boton2">Evento con .onclick</button>
+            <button id="boton3">Evento con Listener</button>
+        </div>
+    </div>
+    <script>
+        document.getElementById("boton2").onclick = function() {alert("funcion 2")};
+        
+        document.querySelector('#boton3').addEventListener("click",mifuncion);
+        document.querySelector('#boton3').addEventListener("click",mifuncion2);
+        
+        function mifuncion(){alert('funcion 3');}
+        function mifuncion2(){alert('funcion 3.1');}
+    </script>
+</body>
+</html>

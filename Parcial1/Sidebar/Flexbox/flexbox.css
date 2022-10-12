@@ -1,0 +1,66 @@
+.contenedor {
+    width: 100vw;
+    height: 100vh;
+}
+
+div.sidebar {
+    display: flex;
+    background-color: tomato;
+    width: 200px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: left;
+    height: 100%;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    padding: 5px;
+    text-align: center;
+}
+
+a:hover {
+    background-color: limegreen;
+    color: white;
+}
+
+div.content {
+    background-color: cadetblue;
+    float: left;
+    width: calc(100% - 200px);
+    padding: 1px 16px;
+    height: 100%;
+}
+
+input {
+    display: none;
+}
+
+input:checked + .sidebar {
+    display: none;
+}
+
+@media screen and (max-width: 1200px) {
+    div.sidebar {
+        float: none;
+        width: 100%;
+        height: auto;
+    }
+
+    .sidebar a {
+        float: left;
+    }
+
+    div.content {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .sidebar a {
+        float: none;
+        text-align: center;
+    }
+}
