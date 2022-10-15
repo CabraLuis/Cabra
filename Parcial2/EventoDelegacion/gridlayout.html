@@ -19,9 +19,11 @@
             var elem = document.getElementById("cont")
 
             elem.addEventListener('click', cambioCaja)
+
             function cambioCaja(evento){
                 console.log(evento);
-                if(document.getElementById(evento.target.id).classList.contains("caja1")){
+                if(document.getElementById(evento.target.id).classList.contains("caja")){
+                    console.log("click en caja")
                     document.getElementById(evento.target.id).classList.toggle("cajaEvento")
                 }
             }

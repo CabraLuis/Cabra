@@ -19,6 +19,16 @@
     align-items: stretch;
 }
 
+.cajaEvento {
+    border: 1px black solid;
+    text-align: center;
+    background-color: palevioletred;
+}
+
+.cajaEvento:hover{
+    transform: scale(1.1);
+}
+
 .caja {
     border: 1px black solid;
     text-align: center;
@@ -26,27 +36,22 @@
 
 #caja1 {
     grid-area: encabezado;
-    background-color: violet;
 }
 
 #caja2 {
     grid-area: columna1;
-    background-color: blueviolet;
 }
 
 #caja3 {
     grid-area: columna2;
-    background-color: lightcoral;
 }
 
 #caja4 {
     grid-area: columna3;
-    background-color: peachpuff;
 }
 
 #caja5 {
     grid-area: piepagina;
-    background-color: palevioletred;
 }
 
 @media screen and (max-width: 900px) {
@@ -60,6 +65,3 @@
     }
 }
 
-.cajaEvento {
-    background-color: brown;
-}

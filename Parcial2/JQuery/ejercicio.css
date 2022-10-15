@@ -1,0 +1,17 @@
+body {
+    background-color: paleturquoise;
+}
+
+button {
+    background-color: palevioletred;
+    display: inline;
+    width: 200px;
+    font-size: 1.5rem;
+    height: 100px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgb(177, 90, 119);
+    transform: scale(1.09);
+}

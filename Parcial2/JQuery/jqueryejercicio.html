@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ejercicio.css">
+    <script src="jquery-3.6.1.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <button id="boton1">Hola mundo</button>
+    
+    <button id="boton2">Hola mundo 2</button>
+    
+    <button id="boton3">Hola mundo 3</button>
+    
+
+    <script>
+        $(document).ready(function(){
+            console.log('Jquery Ready');
+
+            $('#boton1').click(
+                function() {
+                    alert('Recibido por Jquery / Boton 1');
+                    console.log('Boton 1 presionado');
+                }
+            );
+
+            $('#boton2').click(
+                function() {
+                    alert('Recibido por Jquery / Boton 2');
+                    console.log('Boton 2 presionado');
+                }
+            );
+
+            $('#boton3').click(
+                function() {
+                    alert('Recibido por Jquery / Boton 3');
+                    console.log('Boton 3 presionado');
+                }
+            );
+        });
+    </script>
+</body>
+</html>
