@@ -1,0 +1,45 @@
+ul {
+    list-style-type: none;
+}
+
+.contenedor {
+    width: 100vw;
+    height: 100vh;
+}
+
+body{
+    background-color: cadetblue;
+
+}
+div.content {
+    float: left;
+    width: calc(100% - 200px);
+    padding: 1px 16px;
+    height: 100%;
+}
+
+div.sidebar {
+    display: flex;
+    background-color: palevioletred;
+    width: 200px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: left;
+    height: 100%;
+}
+
+ul > li > ul {
+    display: none;
+}
+
+ul > li:hover > ul {
+    display: block;
+}
+
+input {
+    display: none;
+}
+
+input:checked + div.sidebar {
+    display: none;
+}
