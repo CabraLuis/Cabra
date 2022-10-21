@@ -1,0 +1,20 @@
+#col1 {
+    background-color: palegreen;
+}
+
+#col2 {
+    background-color: paleturquoise;
+}
+
+#col3 {
+    background-color: palevioletred;
+}
+
+.columna {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+body {
+    background-color: palegoldenrod;
+}

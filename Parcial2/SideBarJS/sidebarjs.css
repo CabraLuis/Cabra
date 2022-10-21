@@ -7,10 +7,11 @@ ul {
     height: 100vh;
 }
 
-body{
+body {
     background-color: cadetblue;
 
 }
+
 div.content {
     float: left;
     width: calc(100% - 200px);
@@ -44,6 +45,29 @@ input:checked + div.sidebar {
     display: none;
 } */
 
-.hidden {
+.escondido {
     display: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.3rem;
+}
+
+.subcontainer {
+    font-size: 1.2rem;
+}
+
+button {
+    background-color: palegreen;
+    border: 1px solid black;
+    width: 60px;
+    height: 30px;
+    font-size: 1rem;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgb(127, 250, 127);
 }
