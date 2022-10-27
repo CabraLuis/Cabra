@@ -1,0 +1,18 @@
+.boton {
+    background-color: palegreen;
+    border: solid 1px black;
+    font-size: 1.2rem;
+    width: 60px;
+}
+
+.boton:hover {
+    cursor: pointer;
+}
+
+body {
+    background-color: palevioletred;
+}
+
+h2 {
+    color: lawngreen;
+}
