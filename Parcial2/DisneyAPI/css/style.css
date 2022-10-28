@@ -1,0 +1,66 @@
+@font-face {
+    font-family: Disney;
+    src: url(Walter.ttf);
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#encabezado {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #12194A;
+    color: #FFFFFF;
+    width: 100vw;
+    height: 65px;
+    font-size: 2.5rem;
+    font-family: 'Disney', sans-serif;
+}
+
+#contenedorInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #393E8F;
+    width: 100vw;
+    height: calc(100vh - 65px);
+}
+
+#IDPeticion {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 500px;
+    height: 100px;
+}
+
+#nombre {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: palegreen;
+    width: 500px;
+    height: 100px;
+}
+
+#imagen {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: paleturquoise;
+    width: 500px;
+    height: calc(100vh - 50px);
+}
+
+#pelicula {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: palevioletred;
+    width: 500px;
+    height: 50px;
+}
