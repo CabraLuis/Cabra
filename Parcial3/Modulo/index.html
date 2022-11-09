@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Modulos Ecma</title>
+</head>
+<body>
+    <div id="contenedor">
+        <input type="text" id="cadenaInput">
+        <label for="cadenaInput"></label>
+        <button id="boton">Procesar</button>
+        <input type="text" id="mayusculaOutput" disabled>
+    </div>
+
+    <script type="module">
+        /* se importa una funcion desde un script no importado */
+        import {mayuscula} from './modulo.js';
+        const boton = document.getElementById('boton');
+        boton.addEventListener('click', function(){
+            let palabra = document.getElementById('cadenaInput').value;
+            let resultadoMayuscula = document.getElementById('mayusculaOutput');
+            /* se invoca la funcion normalmente */
+            resultadoMayuscula.value = mayuscula(palabra);
+        })
+    </script>
+</body>
+</html>

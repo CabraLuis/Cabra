@@ -1,0 +1,17 @@
+body {
+    background-color: palegoldenrod;
+}
+
+#boton {
+    border: solid 1px black;
+    width: 100px;
+    height: 50px;
+    font-size: 1.4rem;
+    background-color: palegreen;
+}
+
+input {
+    width: 500px;
+    height: 50px;
+    font-size: 1.1rem;
+}
