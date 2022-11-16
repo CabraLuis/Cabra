@@ -86,7 +86,11 @@
       <div id="botones" class="pt-3">
         <button type="button" class="btn btn-success w-100" id="registrarBtn">
           Registrar
-          <i class="bi bi-check-lg"></i>
+          <i class="bi bi-upload"></i>
+        </button>
+        <button type="button" class="btn btn-info w-100 mt-2" id="llenarBtn">
+          Llenar Datos
+          <i class="bi bi-download"></i>
         </button>
       </div>
     </form>
@@ -102,6 +106,20 @@
       </div>
       <div class="toast-body">
         Se ha registrado un juego con exito.
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="notificacionLlenar" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header bg-info">
+        <i class="bi bi-bell text-white mx-1"></i>
+        <strong class="me-auto text-white">Datos Llenados</strong>
+        <small class="text-white">Hace un momento</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        Se han llenado datos.
       </div>
     </div>
   </div>

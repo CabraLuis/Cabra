@@ -1,6 +1,11 @@
 document.getElementById('registrarBtn').addEventListener('click', () => {
-    const notificacion = new bootstrap.Toast(document.getElementById('notificacionRegistrar'));
-    notificacion.show()
+    const notificacionRegistrar = new bootstrap.Toast(document.getElementById('notificacionRegistrar'));
+    notificacionRegistrar.show()
+})
+
+document.getElementById('llenarBtn').addEventListener('click', () => {
+    const notificacionLlenar = new bootstrap.Toast(document.getElementById('notificacionLlenar'));
+    notificacionLlenar.show()
 })
 
 document.getElementById('generoBtn').addEventListener('click', () => {
@@ -47,3 +52,15 @@ function getCheckbox(valor) {
     document.getElementById(valor + 'ID').value = resultado.slice(0, -2);
     console.log('click');
 }
+
+document.getElementById('llenarBtn').addEventListener('click', function() {
+    /* en lugar de registro seria la url del servidor */
+    fetch('registro.php')
+    .then(respuesta => respuesta.json())
+    .then(datojson => {
+        console.log(datojson);
+        document.getElementById("idJuego").value = datojson.idJuego;
+        document.getElementById("idNombre").value = datojson.idNombre;
+        document.getElementById("idSalida").value = datojson.idSalida;
+    })
+})
