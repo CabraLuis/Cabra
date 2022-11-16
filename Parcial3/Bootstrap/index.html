@@ -7,6 +7,7 @@
   <title>Bootstrap demo</title>
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
 </head>
 
 <body>
@@ -14,114 +15,201 @@
     <h1>👾 Catálogo de Juegos 👾</h1>
   </header>
   <hr>
-  <article>
-    <section id="formulario">
-      <form>
-        <div class="row">
-          <div class="form-group col-sm-12 col-md-2 col-lg-1">
-            <label for="idJuego" class="form-label"><b>ID</b></label>
-            <input type="text" class="form-control" id="idJuego">
-          </div>
-
-          <div class="form-group col-sm-12 col-md-8 col-lg-10">
-            <label for="idNombre" class="form-label"><b>Nombre</b></label>
-            <input type="text" class="form-control" id="idNombre">
-          </div>
-
-          <div class="form-group col-sm-12 col-md-2 col-lg-1">
-            <label for="idSalida" class="form-label"><b>Año</b></label>
-            <input type="text" class="form-control" id="idSalida">
-          </div>
+  <div id="formulario" class="container-fluid">
+    <form>
+      <div class="row">
+        <div class="form-group col-sm-12 col-md-2 col-lg-1">
+          <label for="idJuego" class="form-label"><b>ID</b></label>
+          <input type="text" class="form-control" id="idJuego">
         </div>
 
-        <div class="row">
-          <div class="form-group col-sm-12 col-md-4 col-lg-5">
-            <label for="idDesarrolladores" class="form-label"><b>Desarrolladores</b></label>
-            <input type="text" class="form-control" id="idDesarrolladores">
-          </div>
-
-          <div class="form-group col-sm-12 col-md-4 col-lg-5">
-            <label for="idDistribuidores" class="form-label"><b>Distribuidores</b></label>
-            <input type="text" class="form-control" id="idDistribuidores">
-          </div>
-
-          <div class="form-group col-sm-12 col-md-4 col-lg-2">
-            <label for="idClasificacion" class="form-label"><b>Clasificación ESRB</b></label>
-            <select class="form-select" aria-label="Seleccion">
-              <option selected>Seleccionar</option>
-              <option value="1">Todos</option>
-              <option value="2">Todos +10</option>
-              <option value="3">Adolescentes</option>
-              <option value="4">Maduro +17</option>
-              <option value="5">Adultos únicamente +18</option>
-              <option value="6">Clasificación pendiente</option>
-            </select>
-          </div>
+        <div class="form-group col-sm-12 col-md-8 col-lg-10">
+          <label for="idNombre" class="form-label"><b>Nombre</b></label>
+          <input type="text" class="form-control" id="idNombre">
         </div>
 
-        <div class="row">
-          <div class="form-group col-sm-12 col-md-6 col-lg-6">
-            <label for="idGenero" class="form-label"><b>Géneros</b></label>
+        <div class="form-group col-sm-12 col-md-2 col-lg-1">
+          <label for="idSalida" class="form-label"><b>Año</b></label>
+          <input type="text" class="form-control" id="idSalida">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-sm-12 col-md-4 col-lg-4">
+          <label for="idDesarrolladores" class="form-label"><b>Desarrolladores</b></label>
+          <input type="text" class="form-control" id="idDesarrolladores">
+        </div>
+
+        <div class="form-group col-sm-12 col-md-4 col-lg-4">
+          <label for="idDistribuidores" class="form-label"><b>Distribuidores</b></label>
+          <input type="text" class="form-control" id="idDistribuidores">
+        </div>
+
+        <div class="form-group col-sm-12 col-md-4 col-lg-4">
+          <label for="idClasificacion" class="form-label"><b>Clasificación ESRB</b></label>
+          <select class="form-select" aria-label="Seleccion">
+            <option selected>Seleccionar</option>
+            <option value="1">Todos</option>
+            <option value="2">Todos +10</option>
+            <option value="3">Adolescentes</option>
+            <option value="4">Maduro +17</option>
+            <option value="5">Adultos únicamente +18</option>
+            <option value="6">Clasificación pendiente</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- <div class="form-group col-sm-12 col-md-6 col-lg-6">
+          <label for="idGenero" class="form-label"><b>Géneros</b></label>
+          <input type="text" class="form-control" id="idGenero">
+        </div>
+
+        <div class="form-group col-sm-12 col-md-6 col-lg-6">
+          <label for="idModos" class="form-label"><b>Modos de Juego</b></label>
+          <input type="text" class="form-control" id="idModos">
+        </div> -->
+        <div class="form-group col-sm-12 col-md-6 col-lg-6">
+          <label for="idGenero" class="form-label"><b>Géneros</b></label>
+          <div class="input-group">
             <input type="text" class="form-control" id="idGenero">
-          </div>
-
-          <div class="form-group col-sm-12 col-md-6 col-lg-6">
-            <label for="idModos" class="form-label"><b>Modos de Juego</b></label>
-            <input type="text" class="form-control" id="idModos">
+            <span class="input-group-btn">
+              <button type="button" class="btn bg-info" id="generoBtn">
+                <i class="bi bi-plus-lg"></i>
+              </button>
+            </span>
           </div>
         </div>
 
-        <div id="botones">
-          <button type="button" class="btn btn-primary" id="liveToastBtn">Toast</button>
-          <button type="button" class="btn btn-secondary" id="modalBoton">Modal</button>
-        </div>
-      </form>
-      </section>
-    <section>
-      <div class="toast-container position-fixed bottom-0 end-0 p-3">
-        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-          <div class="toast-header">
-            <img src="..." class="rounded me-2" alt="...">
-            <strong class="me-auto">Toast</strong>
-            <small>11 mins ago</small>
-            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-          </div>
-          <div class="toast-body">
-            Ejemplo de toast.
+        <div class="form-group col-sm-12 col-md-6 col-lg-6">
+          <label for="idModos" class="form-label"><b>Modos de Juego</b></label>
+          <div class="input-group">
+          <input type="text" class="form-control" id="idModos">
+            <span class="input-group-btn">
+              <button type="button" class="btn bg-info" id="modosBtn">
+                <i class="bi bi-plus-lg"></i>
+              </button>
+            </span>
           </div>
         </div>
       </div>
+      <div id="botones">
+        <button type="button" class="btn btn-success w-100" id="registrarBtn">
+          Registrar
+        </button>
+      </div>
+    </form>
+  </div>
 
-      <div id="myModal" class="modal" tabindex="-1">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Modal JavaScript</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <p>Ejemplo de modal llamado con JavaScript.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-              <button type="button" class="btn btn-primary">Guardar</button>
-            </div>
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="toastRegistrar" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header bg-success">
+        <i class="bi bi-bell text-white mx-1"></i>
+        <strong class="me-auto text-white">Juego Registrado</strong>
+        <small class="text-white">Hace un momento</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        Se ha registrado un juego con exito.
+      </div>
+    </div>
+  </div>
+
+  <div id="modalGeneros" class="modal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Lista de Géneros</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="accionChk">
+            <label class="form-check-label" for="accionChk">
+              Acción
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="aventuraChk">
+            <label class="form-check-label" for="aventuraChk">
+              Aventura
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="puzzleChk">
+            <label class="form-check-label" for="puzzleChk">
+              Puzzle
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="rpgChk">
+            <label class="form-check-label" for="rpgChk">
+              RPG
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="estrategiaChk">
+            <label class="form-check-label" for="estrategiaChk">
+              Estrategia
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="deportesChk">
+            <label class="form-check-label" for="deportesChk">
+              Deportes
+            </label>
           </div>
         </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" id="guardarGeneroBtn">Guardar</button>
+        </div>
       </div>
-    </section>
-  </article>
+    </div>
+  </div>
+
+  <div id="modalModos" class="modal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Lista de Modos de Juego</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="unJugadorChk">
+            <label class="form-check-label" for="unJugadorChk">
+              Un jugador
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="dosJugadoresChk">
+            <label class="form-check-label" for="dosJugadoresChk">
+              Dos jugadores
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="cooperativoChk">
+            <label class="form-check-label" for="cooperativoChk">
+              Cooperativo
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="multijugadorChk">
+            <label class="form-check-label" for="multijugadorChk">
+              Multijugador
+            </label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" id="guardarModoBtn">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <script src="scripts/bootstrap.bundle.min.js"></script>
-  <script>
-    document.getElementById('liveToastBtn').addEventListener('click', () => {
-      const toast = new bootstrap.Toast(document.getElementById('liveToast'));
-      toast.show()
-    })
-
-    document.getElementById('modalBoton').addEventListener('click', () => {
-      const myModal = new bootstrap.Modal(document.getElementById('myModal'), "keyboard");
-      myModal.show();
-    })
-  </script>
+  <script src="scripts/main.js"></script>
 </body>
+
 </html>
