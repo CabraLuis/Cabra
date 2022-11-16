@@ -5,48 +5,47 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bootstrap demo</title>
-  <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
 </head>
 
 <body>
-  <header id="encabezado">
+  <header id="encabezado" class="text-center text-black">
     <h1>👾 Catálogo de Juegos 👾</h1>
   </header>
-  <hr>
   <div id="formulario" class="container-fluid">
     <form>
       <div class="row">
         <div class="form-group col-sm-12 col-md-2 col-lg-1">
-          <label for="idJuego" class="form-label"><b>ID</b></label>
+          <label for="idJuego" class="form-label fw-bold">ID</label>
           <input type="text" class="form-control" id="idJuego">
         </div>
 
         <div class="form-group col-sm-12 col-md-8 col-lg-10">
-          <label for="idNombre" class="form-label"><b>Nombre</b></label>
+          <label for="idNombre" class="form-label fw-bold">Nombre</label>
           <input type="text" class="form-control" id="idNombre">
         </div>
 
         <div class="form-group col-sm-12 col-md-2 col-lg-1">
-          <label for="idSalida" class="form-label"><b>Año</b></label>
+          <label for="idSalida" class="form-label fw-bold">Año</label>
           <input type="text" class="form-control" id="idSalida">
         </div>
       </div>
 
       <div class="row">
         <div class="form-group col-sm-12 col-md-4 col-lg-4">
-          <label for="idDesarrolladores" class="form-label"><b>Desarrolladores</b></label>
+          <label for="idDesarrolladores" class="form-label fw-bold">Desarrolladores</label>
           <input type="text" class="form-control" id="idDesarrolladores">
         </div>
 
         <div class="form-group col-sm-12 col-md-4 col-lg-4">
-          <label for="idDistribuidores" class="form-label"><b>Distribuidores</b></label>
+          <label for="idDistribuidores" class="form-label fw-bold">Distribuidores</label>
           <input type="text" class="form-control" id="idDistribuidores">
         </div>
 
         <div class="form-group col-sm-12 col-md-4 col-lg-4">
-          <label for="idClasificacion" class="form-label"><b>Clasificación ESRB</b></label>
+          <label for="idClasificacion" class="form-label fw-bold">Clasificación ESRB</label>
           <select class="form-select" aria-label="Seleccion">
             <option selected>Seleccionar</option>
             <option value="1">Todos</option>
@@ -60,19 +59,10 @@
       </div>
 
       <div class="row">
-        <!-- <div class="form-group col-sm-12 col-md-6 col-lg-6">
-          <label for="idGenero" class="form-label"><b>Géneros</b></label>
-          <input type="text" class="form-control" id="idGenero">
-        </div>
-
         <div class="form-group col-sm-12 col-md-6 col-lg-6">
-          <label for="idModos" class="form-label"><b>Modos de Juego</b></label>
-          <input type="text" class="form-control" id="idModos">
-        </div> -->
-        <div class="form-group col-sm-12 col-md-6 col-lg-6">
-          <label for="idGenero" class="form-label"><b>Géneros</b></label>
+          <label for="generoID" class="form-label fw-bold">Géneros</label>
           <div class="input-group">
-            <input type="text" class="form-control" id="idGenero">
+            <input type="text" class="form-control" id="generoID" disabled>
             <span class="input-group-btn">
               <button type="button" class="btn bg-info" id="generoBtn">
                 <i class="bi bi-plus-lg"></i>
@@ -82,9 +72,9 @@
         </div>
 
         <div class="form-group col-sm-12 col-md-6 col-lg-6">
-          <label for="idModos" class="form-label"><b>Modos de Juego</b></label>
+          <label for="modoID" class="form-label fw-bold">Modos de Juego</label>
           <div class="input-group">
-          <input type="text" class="form-control" id="idModos">
+            <input type="text" class="form-control" id="modoID" disabled>
             <span class="input-group-btn">
               <button type="button" class="btn bg-info" id="modosBtn">
                 <i class="bi bi-plus-lg"></i>
@@ -93,16 +83,17 @@
           </div>
         </div>
       </div>
-      <div id="botones">
+      <div id="botones" class="pt-3">
         <button type="button" class="btn btn-success w-100" id="registrarBtn">
           Registrar
+          <i class="bi bi-check-lg"></i>
         </button>
       </div>
     </form>
   </div>
 
   <div class="toast-container position-fixed bottom-0 end-0 p-3">
-    <div id="toastRegistrar" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div id="notificacionRegistrar" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header bg-success">
         <i class="bi bi-bell text-white mx-1"></i>
         <strong class="me-auto text-white">Juego Registrado</strong>
@@ -124,37 +115,37 @@
         </div>
         <div class="modal-body">
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="accionChk">
+            <input class="form-check-input" type="checkbox" id="accionChk" name="genero" value="Acción">
             <label class="form-check-label" for="accionChk">
               Acción
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="aventuraChk">
+            <input class="form-check-input" type="checkbox" id="aventuraChk" name="genero" value="Aventura">
             <label class="form-check-label" for="aventuraChk">
               Aventura
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="puzzleChk">
+            <input class="form-check-input" type="checkbox" id="puzzleChk" name="genero" value="Puzzle">
             <label class="form-check-label" for="puzzleChk">
               Puzzle
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="rpgChk">
+            <input class="form-check-input" type="checkbox" id="rpgChk" name="genero" value="RPG">
             <label class="form-check-label" for="rpgChk">
               RPG
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="estrategiaChk">
+            <input class="form-check-input" type="checkbox" id="estrategiaChk" name="genero" value="Estrategia">
             <label class="form-check-label" for="estrategiaChk">
               Estrategia
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="deportesChk">
+            <input class="form-check-input" type="checkbox" id="deportesChk" name="genero" value="Deportes">
             <label class="form-check-label" for="deportesChk">
               Deportes
             </label>
@@ -162,7 +153,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary" id="guardarGeneroBtn">Guardar</button>
+          <button type="button" class="btn btn-primary" id="generoGuardarBtn">Guardar</button>
         </div>
       </div>
     </div>
@@ -177,38 +168,44 @@
         </div>
         <div class="modal-body">
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="unJugadorChk">
+            <input class="form-check-input" type="checkbox" id="unJugadorChk" name="modo" value="Un jugador">
             <label class="form-check-label" for="unJugadorChk">
               Un jugador
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="dosJugadoresChk">
+            <input class="form-check-input" type="checkbox" id="dosJugadoresChk" name="modo" value="Dos jugadores">
             <label class="form-check-label" for="dosJugadoresChk">
               Dos jugadores
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="cooperativoChk">
+            <input class="form-check-input" type="checkbox" id="cooperativoChk" name="modo" value="Cooperativo">
             <label class="form-check-label" for="cooperativoChk">
               Cooperativo
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="multijugadorChk">
+            <input class="form-check-input" type="checkbox" id="multijugadorChk" name="modo" value="Multijugador">
             <label class="form-check-label" for="multijugadorChk">
               Multijugador
             </label>
           </div>
         </div>
         <div class="modal-footer">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="todosChk" value="Todos">
+            <label class="form-check-label" for="todosChk">
+              Seleccionar todos
+            </label>
+          </div>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary" id="guardarModoBtn">Guardar</button>
+          <button type="button" class="btn btn-primary" id="modoGuardarBtn">Guardar</button>
         </div>
       </div>
     </div>
   </div>
-  <script src="scripts/bootstrap.bundle.min.js"></script>
+  <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="scripts/main.js"></script>
 </body>
 
