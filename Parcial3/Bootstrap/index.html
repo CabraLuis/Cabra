@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bootstrap demo</title>
+  <title>Catálogo de Videojuegos</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
   <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
@@ -12,7 +12,7 @@
 
 <body>
   <header id="encabezado" class="text-center text-black">
-    <h1>👾 Catálogo de Juegos 👾</h1>
+    <h1>👾 Catálogo de Videojuegos 👾</h1>
   </header>
   <div id="formulario" class="container-fluid">
     <form>
@@ -35,18 +35,18 @@
 
       <div class="row">
         <div class="form-group col-sm-12 col-md-4 col-lg-4">
-          <label for="idDesarrolladores" class="form-label fw-bold">Desarrolladores</label>
-          <input type="text" class="form-control" id="idDesarrolladores">
+          <label for="idDesarrollador" class="form-label fw-bold">Desarrollador</label>
+          <input type="text" class="form-control" id="idDesarrollador">
         </div>
 
         <div class="form-group col-sm-12 col-md-4 col-lg-4">
-          <label for="idDistribuidores" class="form-label fw-bold">Distribuidores</label>
-          <input type="text" class="form-control" id="idDistribuidores">
+          <label for="idDistribuidor" class="form-label fw-bold">Distribuidor</label>
+          <input type="text" class="form-control" id="idDistribuidor">
         </div>
 
         <div class="form-group col-sm-12 col-md-4 col-lg-4">
           <label for="idClasificacion" class="form-label fw-bold">Clasificación ESRB</label>
-          <select class="form-select" aria-label="Seleccion">
+          <select class="form-select" aria-label="Seleccion" id="idClasificacion">
             <option selected>Seleccionar</option>
             <option value="1">Todos</option>
             <option value="2">Todos +10</option>
@@ -83,6 +83,7 @@
           </div>
         </div>
       </div>
+
       <div id="botones" class="pt-3">
         <button type="button" class="btn btn-success w-100" id="registrarBtn">
           Registrar
@@ -95,7 +96,7 @@
       </div>
     </form>
   </div>
-
+  <div id="liveAlertPlaceholder"></div>
   <div class="toast-container position-fixed bottom-0 end-0 p-3">
     <div id="notificacionRegistrar" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header bg-success">
