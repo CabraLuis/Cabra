@@ -69,42 +69,19 @@ function getCheckbox(valor) {
 }) */
 
 
-document.getElementById('llenarBtn').addEventListener('click', function () {
-    /* en lugar de registro seria la url del servidor */
-    fetch('consultar.php')
-        .then(respuesta => respuesta.json())
-        .then(datojson => {
-            var juego = 0;
-            document.getElementById("idJuego").value = datojson[juego][0];
-            document.getElementById("idNombre").value = datojson[juego][1];
-            document.getElementById("idSalida").value = datojson[juego][2];
-            document.getElementById("idDesarrollador").value = datojson[juego][3];
-            document.getElementById("idDistribuidor").value = datojson[juego][4];
-            var clasificacion = document.getElementById("idClasificacion");
-            switch (datojson[juego][5]) {
-                case "Todos":
-                    clasificacion.options[1].selected = true
-                    break;
-                case "Todos +10":
-                    clasificacion.options[2].selected = true
-                    break;
-                case "Adolescentes":
-                    clasificacion.options[3].selected = true
-                    break;
-                case "Maduro +17":
-                    clasificacion.options[1].selected = true
-                    break;
-                case "Adultos unicamente":
-                    clasificacion.options[1].selected = true
-                    break;
-                case "Clasificacion pendiente":
-                    clasificacion.options[1].selected = true
-                    break;
-                default:
-                    break;
-            }
-            document.getElementById("generoID").value = datojson[juego][6];
-            document.getElementById("modoID").value = datojson[juego][7];
+document.getElementById('llenarBtn').addEventListener('click', async () => {
+    var datosFormulario = new FormData(document.getElementById('formulario'));
+            let respuesta = await fetch('consultar.php',{
+                method: 'POST',
+                body: datosFormulario
+            })
+            let dato = await respuesta.json();
+            console.log(dato);
+            document.getElementById('idNombre').value = dato[0][1];
+            document.getElementById('idSalida').value = dato[0][2];
+            document.getElementById('idDesarrollador').value = dato[0][3];
+            document.getElementById('idDistribuidor').value = dato[0][4];
+            document.getElementById('generoID').value = dato[0][6];
+            document.getElementById('modoID').value = dato[0][7];
 
-        })
 })
