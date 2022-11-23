@@ -85,18 +85,33 @@
       </div>
 
       <div id="botones" class="pt-3">
-        <button type="button" class="btn btn-success w-100" id="registrarBtn">
+        <button type="button" class="btn btn-success w-100 mt-2" id="registrarBtn">
           Registrar
           <i class="bi bi-upload"></i>
         </button>
         <button type="button" class="btn btn-info w-100 mt-2" id="llenarBtn">
-          Llenar Datos
+          Consultar
           <i class="bi bi-download"></i>
         </button>
+        <button type="button" class="btn btn-danger w-100 mt-2" id="eliminarBtn">
+          Eliminar
+          <i class="bi bi-trash3"></i>
+        </button>
+        <button type="button" class="btn btn-primary w-100 mt-2" id="editarBtn">
+          Editar
+          <i class="bi bi-pencil"></i>
+        </button>
+      </div>
+
+      <div class="alert alert-secondary container w-25" role="alert">
+        <div class="form-floating" >
+          <input type="text" class="form-control" name="consultarID" placeholder="ID">
+          <label for="consultarID">ID a consultar</label>
+        </div>
       </div>
     </form>
   </div>
-  <div id="liveAlertPlaceholder"></div>
+
   <div class="toast-container position-fixed bottom-0 end-0 p-3">
     <div id="notificacionRegistrar" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header bg-success">
@@ -115,12 +130,12 @@
     <div id="notificacionLlenar" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header bg-info">
         <i class="bi bi-bell text-white mx-1"></i>
-        <strong class="me-auto text-white">Datos Llenados</strong>
+        <strong class="me-auto text-white">Datos Consultados</strong>
         <small class="text-white">Hace un momento</small>
         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
       </div>
       <div class="toast-body">
-        Se han llenado datos.
+        Se han consultado datos.
       </div>
     </div>
   </div>
