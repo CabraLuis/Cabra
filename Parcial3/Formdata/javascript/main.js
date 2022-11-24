@@ -55,7 +55,7 @@ function getCheckbox(valor) {
 
 document.getElementById('llenarBtn').addEventListener('click', async () => {
     var datosFormulario = new FormData(document.getElementById('formulario'));
-    let respuesta = await fetch('consultar.php', {
+    let respuesta = await fetch('php/consultar.php', {
         method: 'POST',
         body: datosFormulario
     })
