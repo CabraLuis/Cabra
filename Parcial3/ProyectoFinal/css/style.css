@@ -1,0 +1,13 @@
+#encabezado {
+    background: #886ce4;
+    border-bottom: #977deb 2px solid;
+}
+
+html {
+    height: 100vh;
+}
+
+body {
+    background: rgb(49,210,247);
+    background: no-repeat linear-gradient(0deg, rgba(49,210,247,1) 0%, rgba(136,108,228,1) 40%); 
+}
