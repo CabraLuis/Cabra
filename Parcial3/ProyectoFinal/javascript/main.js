@@ -1,45 +1,37 @@
-document.getElementById('generoBtn').addEventListener('click', modalGeneros)
-document.getElementById('modosBtn').addEventListener('click', modalModos)
-document.getElementById('generoGuardarBtn').addEventListener('click', getCheckboxGenero)
-document.getElementById('modoGuardarBtn').addEventListener('click', getCheckboxModo)
-document.getElementById('consultarBtn').addEventListener('click', consultar)
-document.getElementById('registrarBtn').addEventListener('click', notificacionRegistrar)
-document.getElementById('todosChk').addEventListener('click', marcarTodos)
+// Botones para mostrar modales
+document.getElementById('generoBtn').addEventListener('click', ()=>{mostrarModal('Generos')});
+document.getElementById('modosBtn').addEventListener('click', ()=>{mostrarModal('Modos')});
+// Botones para leer checkboxes
+document.getElementById('generoGuardarBtn').addEventListener('click', ()=>{getCheckbox(genero)});
+document.getElementById('modoGuardarBtn').addEventListener('click', ()=>{getCheckbox(modo)});
+document.getElementById('todosChk').addEventListener('click', ()=>{marcarTodosCheck()});
+// Botones para operaciones en la DB
+document.getElementById('registrarBtn').addEventListener('click', ()=>{registrar()});
+document.getElementById('consultarBtn').addEventListener('click', ()=>{consultar()});
+document.getElementById('eliminarBtn').addEventListener('click', ()=>{eliminar()});
+document.getElementById('editarBtn').addEventListener('click', ()=>{editar()});
 
-function notificacionRegistrar() {
-    mostrarNotificacion('notificacionRegistrar');
-}
-
-function notificacionConsultar() {
-    mostrarNotificacion('notificacionConsultar');
-}
-
-function getCheckboxGenero() {
-    getCheckbox('genero');
-}
-
-function getCheckboxModo() {
-    getCheckbox('modo');
-}
-
-function modalGeneros() {
-    mostrarModal('Generos');
-} 
-
-function modalModos() {
-    mostrarModal('Modos');
-}
-
+// Mostrar notificaciones
 function mostrarNotificacion(tipo) {
     const notificacion = new bootstrap.Toast(document.getElementById(tipo));
-    notificacion.show()
+    notificacion.show();
 }
 
+// Mostrar modales
 function mostrarModal(tipo) {
     const modal = new bootstrap.Modal(document.getElementById('modal'+tipo), "keyboard");
     modal.show();
 }
 
+// Marcar todos los checkboxes de modo
+function marcarTodosCheck() {
+    let checkboxes = document.getElementsByName('modo');
+    for (var checkbox of checkboxes) {
+        checkbox.checked = this.checked
+    }
+}
+
+// Leer checkboxes
 function getCheckbox(valor) {
     let checkboxes = document.getElementsByName(valor);
     let resultado = " ";
@@ -52,13 +44,7 @@ function getCheckbox(valor) {
     document.getElementById(valor + 'ID').value = resultado.slice(0, -1);
 }
 
-function marcarTodos() {
-    let checkboxes = document.getElementsByName('modo');
-    for (var checkbox of checkboxes) {
-        checkbox.checked = this.checked
-    }
-}
-
+// Traer datos de la DB
 async function consultar() {
     let datosFormulario = new FormData(document.getElementById('formulario'));
     let respuesta = await fetch('php/consultar.php', {
