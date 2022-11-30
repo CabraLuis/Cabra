@@ -1,10 +1,12 @@
 // Botones para mostrar modales
 document.getElementById('generoBtn').addEventListener('click', ()=>{mostrarModal('Generos')});
 document.getElementById('modosBtn').addEventListener('click', ()=>{mostrarModal('Modos')});
+
 // Botones para leer checkboxes
 document.getElementById('generoGuardarBtn').addEventListener('click', ()=>{getCheckbox(genero)});
 document.getElementById('modoGuardarBtn').addEventListener('click', ()=>{getCheckbox(modo)});
 document.getElementById('todosChk').addEventListener('click', ()=>{marcarTodosCheck()});
+
 // Botones para operaciones en la DB
 document.getElementById('registrarBtn').addEventListener('click', ()=>{registrar()});
 document.getElementById('consultarBtn').addEventListener('click', ()=>{consultar()});
@@ -40,7 +42,7 @@ function getCheckbox(valor) {
             resultado += checkboxes[i].value + " ";
         }
     }
-    /*slice(index inicial, index final) slice(0,-1) es equivalente a slice(0, resultado.length - 1)*/
+// slice(index inicial, index final) slice(0,-1) es equivalente a slice(0, resultado.length - 1)
     document.getElementById(valor + 'ID').value = resultado.slice(0, -1);
 }
 
@@ -52,7 +54,6 @@ async function consultar() {
         body: datosFormulario
     })
     let dato = await respuesta.json();
-    notificacionConsultar();
     document.getElementById('idJuego').value = dato.id;
     document.getElementById('idNombre').value = dato.nombre;
     document.getElementById('idSalida').value = dato.salida;
@@ -70,4 +71,5 @@ async function consultar() {
         case 'Clasificacion pendiente': valorClasificacion.value = 6; break;
         default: valorClasificacion.value = "Seleccionar"
     }
+    notificacionConsultar();
 }
