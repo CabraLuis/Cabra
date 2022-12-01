@@ -3,9 +3,9 @@ document.getElementById('generoBtn').addEventListener('click', ()=>{mostrarModal
 document.getElementById('modosBtn').addEventListener('click', ()=>{mostrarModal('Modos')});
 
 // Botones para leer checkboxes
-document.getElementById('generoGuardarBtn').addEventListener('click', ()=>{getCheckbox(genero)});
-document.getElementById('modoGuardarBtn').addEventListener('click', ()=>{getCheckbox(modo)});
-document.getElementById('todosChk').addEventListener('click', ()=>{marcarTodosCheck()});
+document.getElementById('generoGuardarBtn').addEventListener('click', ()=>{getCheckbox()});
+//document.getElementById('modoGuardarBtn').addEventListener('click', ()=>{getCheckbox()});
+//document.getElementById('todosChk').addEventListener('click', ()=>{marcarTodosCheck()});
 
 // Botones para operaciones en la DB
 document.getElementById('registrarBtn').addEventListener('click', ()=>{registrar()});
@@ -34,8 +34,8 @@ function marcarTodosCheck() {
 }
 
 // Leer checkboxes
-function getCheckbox(valor) {
-    let checkboxes = document.getElementsByName(valor);
+function getCheckbox() {
+    let checkboxes = document.getElementsByName(modo);
     let resultado = " ";
     for (let i = 0; i < checkboxes.length; i++) {
         if (checkboxes[i].checked) {
@@ -48,6 +48,7 @@ function getCheckbox(valor) {
 
 // Traer datos de la DB
 async function consultar() {
+    const valorClasificacion = document.getElementById('idClasificacion');
     let datosFormulario = new FormData(document.getElementById('formulario'));
     let respuesta = await fetch('php/consultar.php', {
         method: 'POST',
@@ -61,7 +62,6 @@ async function consultar() {
     document.getElementById('idDistribuidor').value = dato.distribuidor;
     document.getElementById('generoID').value = dato.generos;
     document.getElementById('modoID').value = dato.modos;
-    let valorClasificacion = document.getElementById('idClasificacion');
     switch (dato.clasificacion) {
         case 'Todos': valorClasificacion.value = 1; break;
         case 'Todos +10': valorClasificacion.value = 2; break;
