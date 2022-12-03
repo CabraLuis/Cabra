@@ -1,245 +1,453 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Catálogo de Videojuegos</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Catálogo de Videojuegos</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
-</head>
+  <body>
+    <header id="encabezado" class="text-center text-black">
+      <h1>👾 Catálogo de Videojuegos 👾</h1>
+    </header>
+    <div class="container-fluid">
+      <!-- En el atributo action se envia el php para insertar con el method POST -->
+      <form id="formulario">
+        <div class="row">
+          <div class="form-group col-sm-12 col-md-2 col-lg-1">
+            <label for="idJuego" class="form-label fw-bold">ID</label>
+            <input
+              type="text"
+              class="form-control"
+              id="idJuego"
+              name="juegoID"
+            />
+          </div>
 
-<body>
-  <header id="encabezado" class="text-center text-black">
-    <h1>👾 Catálogo de Videojuegos 👾</h1>
-  </header>
-  <div class="container-fluid">
-    <!-- En el atributo action se envia el php para insertar con el method POST -->
-    <form id="formulario" action="php/insertar.php" method="POST">
-      <div class="row">
-        <div class="form-group col-sm-12 col-md-2 col-lg-1">
-          <label for="idJuego" class="form-label fw-bold">ID</label>
-          <input type="text" class="form-control" id="idJuego" name="juegoID">
-        </div>
+          <div class="form-group col-sm-12 col-md-8 col-lg-10">
+            <label for="idNombre" class="form-label fw-bold">Nombre</label>
+            <input
+              type="text"
+              class="form-control"
+              id="idNombre"
+              name="nombreID"
+            />
+          </div>
 
-        <div class="form-group col-sm-12 col-md-8 col-lg-10">
-          <label for="idNombre" class="form-label fw-bold">Nombre</label>
-          <input type="text" class="form-control" id="idNombre" name="nombreID">
-        </div>
-
-        <div class="form-group col-sm-12 col-md-2 col-lg-1">
-          <label for="idSalida" class="form-label fw-bold">Año</label>
-          <input type="text" class="form-control" id="idSalida" name="salidaID">
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="form-group col-sm-12 col-md-4 col-lg-4">
-          <label for="idDesarrollador" class="form-label fw-bold">Desarrollador</label>
-          <input type="text" class="form-control" id="idDesarrollador" name="desarrolladorID">
-        </div>
-
-        <div class="form-group col-sm-12 col-md-4 col-lg-4">
-          <label for="idDistribuidor" class="form-label fw-bold">Distribuidor</label>
-          <input type="text" class="form-control" id="idDistribuidor" name="distribuidorID">
-        </div>
-
-        <div class="form-group col-sm-12 col-md-4 col-lg-4">
-          <label for="idClasificacion" class="form-label fw-bold">Clasificación ESRB</label>
-          <select class="form-select" aria-label="Seleccion" id="idClasificacion" name="clasificacionID">
-            <option selected>Seleccionar</option>
-            <option value="1">Todos</option>
-            <option value="2">Todos +10</option>
-            <option value="3">Adolescentes</option>
-            <option value="4">Maduro +17</option>
-            <option value="5">Adultos únicamente +18</option>
-            <option value="6">Clasificación pendiente</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="form-group col-sm-12 col-md-6 col-lg-6">
-          <label for="idGenero" class="form-label fw-bold">Géneros</label>
-          <div class="input-group">
-            <input type="text" class="form-control" id="generoID" name="generoID" readonly>
-            <span class="input-group-btn">
-              <button type="button" class="btn bg-info" id="generoBtn">
-                <i class="bi bi-plus-lg"></i>
-              </button>
-            </span>
+          <div class="form-group col-sm-12 col-md-2 col-lg-1">
+            <label for="idSalida" class="form-label fw-bold">Año</label>
+            <input
+              type="text"
+              class="form-control"
+              id="idSalida"
+              name="salidaID"
+            />
           </div>
         </div>
 
-        <div class="form-group col-sm-12 col-md-6 col-lg-6">
-          <label for="idModo" class="form-label fw-bold">Modos de Juego</label>
-          <div class="input-group">
-            <input type="text" class="form-control" id="modoID" name="modoID" readonly>
-            <span class="input-group-btn">
-              <button type="button" class="btn bg-info" id="modosBtn">
-                <i class="bi bi-plus-lg"></i>
-              </button>
-            </span>
+        <div class="row">
+          <div class="form-group col-sm-12 col-md-4 col-lg-4">
+            <label for="idDesarrollador" class="form-label fw-bold"
+              >Desarrollador</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="idDesarrollador"
+              name="desarrolladorID"
+            />
+          </div>
+
+          <div class="form-group col-sm-12 col-md-4 col-lg-4">
+            <label for="idDistribuidor" class="form-label fw-bold"
+              >Distribuidor</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="idDistribuidor"
+              name="distribuidorID"
+            />
+          </div>
+
+          <div class="form-group col-sm-12 col-md-4 col-lg-4">
+            <label for="idClasificacion" class="form-label fw-bold"
+              >Clasificación ESRB</label
+            >
+            <select
+              class="form-select"
+              aria-label="Seleccion"
+              id="idClasificacion"
+              name="clasificacionID"
+            >
+              <option selected value="Seleccionar">Seleccionar</option>
+              <option value="Todos">Todos</option>
+              <option value="Todos +10">Todos +10</option>
+              <option value="Adolescentes">Adolescentes</option>
+              <option value="Maduro +17">Maduro +17</option>
+              <option value="Adultos unicamente +18">
+                Adultos únicamente +18
+              </option>
+              <option value="Clasificacion pendiente">
+                Clasificación pendiente
+              </option>
+            </select>
           </div>
         </div>
-      </div>
 
-      <div id="botones" class="d-grid gap-2 mx-auto w-25">
-        <button type="submit" class="btn btn-success mt-2" id="registrarBtn">
-          Registrar
-          <i class="bi bi-upload"></i>
-        </button>
-        <button type="button" class="btn btn-info" id="consultarBtn">
-          Consultar
-          <i class="bi bi-download"></i>
-        </button>
-        <button type="button" class="btn btn-danger w-100" id="eliminarBtn">
-          Eliminar
-          <i class="bi bi-trash3"></i>
-        </button>
-        <button type="button" class="btn btn-primary mb-2" id="editarBtn">
-          Editar
-          <i class="bi bi-pencil"></i>
-        </button>
-      </div>
+        <div class="row">
+          <div class="form-group col-sm-12 col-md-6 col-lg-6">
+            <label for="idGenero" class="form-label fw-bold">Géneros</label>
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                id="generoID"
+                name="generoID"
+                readonly
+              />
+              <span class="input-group-btn">
+                <button type="button" class="btn bg-info" id="generoBtn">
+                  <i class="bi bi-plus-lg"></i>
+                </button>
+              </span>
+            </div>
+          </div>
 
-      <div class="alert alert-secondary container w-25" role="alert">
-        <div class="form-floating" >
-          <input type="text" class="form-control" name="idConsultar" placeholder="ID">
-          <label for="idConsultar">Ingrese ID...</label>
+          <div class="form-group col-sm-12 col-md-6 col-lg-6">
+            <label for="idModo" class="form-label fw-bold"
+              >Modos de Juego</label
+            >
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                id="modoID"
+                name="modoID"
+                readonly
+              />
+              <span class="input-group-btn">
+                <button type="button" class="btn bg-info" id="modosBtn">
+                  <i class="bi bi-plus-lg"></i>
+                </button>
+              </span>
+            </div>
+          </div>
         </div>
-      </div>
-    </form>
-  </div>
 
-  <div class="toast-container position-fixed bottom-0 end-0 p-3">
-    <div id="notificacionRegistrar" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="toast-header bg-success">
-        <i class="bi bi-bell text-white mx-1"></i>
-        <strong class="me-auto text-white">Juego Registrado</strong>
-        <small class="text-white">Hace un momento</small>
-        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        <div id="botones" class="d-grid gap-2 mx-auto w-75">
+          <button type="button" class="btn btn-success mt-2" id="registrarBtn">
+            Registrar
+            <i class="bi bi-upload"></i>
+          </button>
+          <button type="button" class="btn btn-info" id="consultarBtn">
+            Consultar
+            <i class="bi bi-download"></i>
+          </button>
+          <button type="button" class="btn btn-danger w-100" id="eliminarBtn">
+            Eliminar
+            <i class="bi bi-trash3"></i>
+          </button>
+          <button type="button" class="btn btn-primary mb-2" id="editarBtn">
+            Editar
+            <i class="bi bi-pencil"></i>
+          </button>
+        </div>
+
+        <div class="alert alert-secondary container w-25" role="alert">
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control"
+              name="idConsultar"
+              placeholder="ID"
+            />
+            <label for="idConsultar">Ingrese ID...</label>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div
+        id="notificacionRegistrar"
+        class="toast"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="toast-header bg-success">
+          <i class="bi bi-bell text-white mx-1"></i>
+          <strong class="me-auto text-white">Juego Registrado</strong>
+          <small class="text-white">Hace un momento</small>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="toast-body">Se ha registrado un juego.</div>
       </div>
-      <div class="toast-body">
-        Se ha registrado un juego.
+
+      <div
+        id="notificacionConsultar"
+        class="toast"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="toast-header bg-info">
+          <i class="bi bi-bell text-white mx-1"></i>
+          <strong class="me-auto text-white">Datos Consultados</strong>
+          <small class="text-white">Hace un momento</small>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="toast-body">Se han consultado datos.</div>
+      </div>
+
+      <div
+        id="notificacionEliminar"
+        class="toast"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="toast-header bg-danger">
+          <i class="bi bi-bell text-white mx-1"></i>
+          <strong class="me-auto text-white">Datos Eliminados</strong>
+          <small class="text-white">Hace un momento</small>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="toast-body">Se han eliminado datos.</div>
+      </div>
+
+      <div
+        id="notificacionEditar"
+        class="toast"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="toast-header bg-primary">
+          <i class="bi bi-bell text-white mx-1"></i>
+          <strong class="me-auto text-white">Datos Editados</strong>
+          <small class="text-white">Hace un momento</small>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="toast-body">Se han editado datos.</div>
       </div>
     </div>
 
-    <div id="notificacionConsultar" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="toast-header bg-info">
-        <i class="bi bi-bell text-white mx-1"></i>
-        <strong class="me-auto text-white">Datos Consultados</strong>
-        <small class="text-white">Hace un momento</small>
-        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-      </div>
-      <div class="toast-body">
-        Se han consultado datos.
-      </div>
-    </div>
-  </div>
-
-  <div id="modalGeneros" class="modal" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header bg-info">
-          <h5 class="modal-title">Lista de Géneros</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="accionChk" name="genero" value="Acción">
-            <label class="form-check-label" for="accionChk">
-              Acción
-            </label>
+    <div id="modalGeneros" class="modal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-info">
+            <h5 class="modal-title">Lista de Géneros</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="aventuraChk" name="genero" value="Aventura">
-            <label class="form-check-label" for="aventuraChk">
-              Aventura
-            </label>
+          <div class="modal-body">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="accionChk"
+                name="genero"
+                value="Accion"
+              />
+              <label class="form-check-label" for="accionChk"> Accion </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="aventuraChk"
+                name="genero"
+                value="Aventura"
+              />
+              <label class="form-check-label" for="aventuraChk">
+                Aventura
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="puzzleChk"
+                name="genero"
+                value="Puzzle"
+              />
+              <label class="form-check-label" for="puzzleChk"> Puzzle </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="rpgChk"
+                name="genero"
+                value="RPG"
+              />
+              <label class="form-check-label" for="rpgChk"> RPG </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="estrategiaChk"
+                name="genero"
+                value="Estrategia"
+              />
+              <label class="form-check-label" for="estrategiaChk">
+                Estrategia
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="deportesChk"
+                name="genero"
+                value="Deportes"
+              />
+              <label class="form-check-label" for="deportesChk">
+                Deportes
+              </label>
+            </div>
           </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="puzzleChk" name="genero" value="Puzzle">
-            <label class="form-check-label" for="puzzleChk">
-              Puzzle
-            </label>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <button type="button" class="btn btn-primary" id="generoGuardarBtn">
+              Guardar
+            </button>
           </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="rpgChk" name="genero" value="RPG">
-            <label class="form-check-label" for="rpgChk">
-              RPG
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="estrategiaChk" name="genero" value="Estrategia">
-            <label class="form-check-label" for="estrategiaChk">
-              Estrategia
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="deportesChk" name="genero" value="Deportes">
-            <label class="form-check-label" for="deportesChk">
-              Deportes
-            </label>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary" id="generoGuardarBtn">Guardar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="modalModos" class="modal" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header bg-info">
-          <h5 class="modal-title">Lista de Modos de Juego</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="unJugadorChk" name="modo" value="Un jugador">
-            <label class="form-check-label" for="unJugadorChk">
-              Un jugador
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="dosJugadoresChk" name="modo" value="Dos jugadores">
-            <label class="form-check-label" for="dosJugadoresChk">
-              Dos jugadores
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="cooperativoChk" name="modo" value="Cooperativo">
-            <label class="form-check-label" for="cooperativoChk">
-              Cooperativo
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="multijugadorChk" name="modo" value="Multijugador">
-            <label class="form-check-label" for="multijugadorChk">
-              Multijugador
-            </label>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="todosChk" value="Todos">
-            <label class="form-check-label" for="todosChk">
-              Seleccionar todos
-            </label>
-          </div>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary" id="modoGuardarBtn">Guardar</button>
         </div>
       </div>
     </div>
-  </div>
-  <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="javascript/main.js"></script>
-</body>
 
+    <div id="modalModos" class="modal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-info">
+            <h5 class="modal-title">Lista de Modos de Juego</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="unJugadorChk"
+                name="modo"
+                value="Un jugador"
+              />
+              <label class="form-check-label" for="unJugadorChk">
+                Un jugador
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="dosJugadoresChk"
+                name="modo"
+                value="Dos jugadores"
+              />
+              <label class="form-check-label" for="dosJugadoresChk">
+                Dos jugadores
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="cooperativoChk"
+                name="modo"
+                value="Cooperativo"
+              />
+              <label class="form-check-label" for="cooperativoChk">
+                Cooperativo
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="multijugadorChk"
+                name="modo"
+                value="Multijugador"
+              />
+              <label class="form-check-label" for="multijugadorChk">
+                Multijugador
+              </label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="todosChk"
+                value="Todos"
+              />
+              <label class="form-check-label" for="todosChk">
+                Seleccionar todos
+              </label>
+            </div>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <button type="button" class="btn btn-primary" id="modoGuardarBtn">
+              Guardar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="javascript/main.js"></script>
+  </body>
 </html>
