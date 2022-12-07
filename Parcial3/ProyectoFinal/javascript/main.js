@@ -1,3 +1,11 @@
+new gridjs.Grid({
+  columns: ["ID", "Nombre", "Año de Salida","Desarrollador","Distribuidor","Clasificación","Generos","Modos"],
+  server:{
+    url: "/Cabra/Parcial3/ProyectoFinal/php/consultar.php",
+    then: data => data.map(item => [item.id, item.nombre, item.salida, item.desarrollador, item.distribuidor, item.clasificacion, item.generos, item.modos])
+  }
+}).render(document.getElementById("datos"));
+
 const botonRegistrar = document.getElementById("registrarBtn");
 const botonConsultar = document.getElementById("consultarBtn");
 const botonEliminar = document.getElementById("eliminarBtn");
@@ -66,6 +74,10 @@ function getCheckbox(name) {
   document.getElementById(name + "ID").value = resultado.slice(0, -1);
 }
 
+function limpiarForm() {
+  document.getElementById('formulario').reset();
+}
+
 async function registrar() {
   let datosFormulario = new FormData(document.getElementById("formulario"));
   let respuesta = await fetch("php/insertar.php", {
@@ -73,11 +85,12 @@ async function registrar() {
     body: datosFormulario,
   });
   mostrarNotificacion("notificacionRegistrar");
+  limpiarForm();
 }
 // Traer datos de la DB
 async function consultar() {
   const valorClasificacion = document.getElementById("idClasificacion");
-  let datosFormulario = new FormData(document.getElementById("formulario"));
+  let datosFormulario = new FormData(document.getElementById("busquedaForm"));
   let respuesta = await fetch("php/consultar.php", {
     method: "POST",
     body: datosFormulario,
@@ -126,6 +139,7 @@ async function eliminar() {
   });
   mostrarNotificacion("notificacionEliminar");
   botonEliminar.disabled = true;
+  limpiarForm();
 }
 
 async function editar() {
@@ -136,4 +150,5 @@ async function editar() {
   });
   mostrarNotificacion("notificacionEditar");
   botonEditar.disabled = true;
+  limpiarForm();
 }

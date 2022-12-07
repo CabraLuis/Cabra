@@ -1,7 +1,7 @@
 <?php
 include 'conectar.php';
 
-$id = $_POST['idConsultar'];
+$id = $_POST['idBusqueda'];
 
 $request = "select * from juego where id=$id";
 $register = mysqli_query($con,$request) or die("Problema en select");

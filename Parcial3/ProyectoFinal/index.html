@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Catálogo de Videojuegos</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
     <link
       rel="stylesheet"
       href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css"
@@ -16,11 +17,21 @@
   </head>
 
   <body>
-    <header id="encabezado" class="text-center text-black">
-      <h1>👾 Catálogo de Videojuegos 👾</h1>
-    </header>
+    <nav class="navbar navbar-expand-lg" id="encabezado">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Catálogo de Videojuegos</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <form class="d-flex" role="search" id="idBusqueda" name="idBusqueda">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
     <div class="container-fluid">
-      <!-- En el atributo action se envia el php para insertar con el method POST -->
       <form id="formulario">
         <div class="row">
           <div class="form-group col-sm-12 col-md-2 col-lg-1">
@@ -153,27 +164,20 @@
             Consultar
             <i class="bi bi-download"></i>
           </button>
-          <button type="button" class="btn btn-danger w-100" id="eliminarBtn">
+          <button type="button" class="btn btn-danger" id="eliminarBtn">
             Eliminar
             <i class="bi bi-trash3"></i>
           </button>
-          <button type="button" class="btn btn-primary mb-2" id="editarBtn">
+          <button type="button" class="btn btn-primary" id="editarBtn">
             Editar
             <i class="bi bi-pencil"></i>
           </button>
+          <button type="button" class="btn btn-primary mb-2" id="editarBtn">
+            Ver todos
+            <i class="bi bi-eye"></i>
+          </button>
         </div>
 
-        <div class="alert alert-secondary container w-25" role="alert">
-          <div class="form-floating">
-            <input
-              type="text"
-              class="form-control"
-              name="idConsultar"
-              placeholder="ID"
-            />
-            <label for="idConsultar">Ingrese ID...</label>
-          </div>
-        </div>
       </form>
     </div>
 
@@ -351,7 +355,7 @@
             >
               Cerrar
             </button>
-            <button type="button" class="btn btn-primary" id="generoGuardarBtn">
+            <button type="button" class="btn btn-primary" id="generoGuardarBtn" data-bs-dismiss="modal">
               Guardar
             </button>
           </div>
@@ -440,13 +444,15 @@
             >
               Cerrar
             </button>
-            <button type="button" class="btn btn-primary" id="modoGuardarBtn">
+            <button type="button" class="btn btn-primary" id="modoGuardarBtn" data-bs-dismiss="modal">
               Guardar
             </button>
           </div>
         </div>
       </div>
     </div>
+    <div id="datos"></div>
+    <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
     <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="javascript/main.js"></script>
   </body>
