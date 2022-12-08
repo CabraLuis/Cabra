@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 24-11-2022 a las 03:59:41
+-- Tiempo de generación: 08-12-2022 a las 01:57:39
 -- Versión del servidor: 5.7.36
 -- Versión de PHP: 7.4.26
 
@@ -29,27 +29,27 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `juego`;
 CREATE TABLE IF NOT EXISTS `juego` (
-  `id` int(2) NOT NULL,
-  `nombre` varchar(50) NOT NULL,
-  `salida` int(4) NOT NULL,
-  `desarrollador` varchar(20) NOT NULL,
-  `distribuidor` varchar(20) NOT NULL,
-  `clasificacion` varchar(25) NOT NULL,
-  `generos` varchar(55) NOT NULL,
-  `modos` varchar(55) NOT NULL,
+  `id` int(3) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(30) DEFAULT NULL,
+  `salida` int(4) DEFAULT NULL,
+  `desarrollador` varchar(20) DEFAULT NULL,
+  `distribuidor` varchar(20) DEFAULT NULL,
+  `clasificacion` varchar(26) DEFAULT NULL,
+  `generos` varchar(55) DEFAULT NULL,
+  `modos` varchar(55) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `juego`
 --
 
 INSERT INTO `juego` (`id`, `nombre`, `salida`, `desarrollador`, `distribuidor`, `clasificacion`, `generos`, `modos`) VALUES
-(0, 'Marvel vs Capcom', 1996, 'Capcom', 'Capcom', 'Adolescentes', 'Accion', 'Un jugador Dos jugadores'),
-(1, 'Pokemon Rojo Fuego', 2004, 'Game Freak', 'Nintendo', 'Todos', 'RPG Estrategia', 'Un jugador'),
-(2, 'Contra', 1987, 'Konami', 'Konami', 'Todos +10', 'Accion Aventura', 'Un jugador Dos jugadores'),
-(3, 'Grand Theft Auto: San Andreas', 2004, 'Rockstar North', 'Rockstar Games', 'Maduro +17', 'Accion Aventura', 'Un jugador'),
-(4, 'Rayman', 1995, 'Ubisoft', 'Ubisoft', 'Todos', 'Aventura', 'Un jugador');
+(1, 'Among Us', 2018, 'Innersloth', 'Innersloth', 'Todos +10', 'Estrategia', 'Multijugador'),
+(2, 'Overwatch', 2016, 'Blizzard', 'Blizzard', 'Adolescentes', 'Accion Estrategia', 'Multijugador'),
+(3, 'Broforce', 2015, 'Free Lives', 'Devolver Digital', 'Maduro +17', 'Accion Aventura', 'Un jugador Dos jugadores Multijugador'),
+(4, 'Terraria', 2011, 'Re-Logic', '505 Games', 'Adolescentes', 'Accion Aventura', 'Un jugador Multijugador'),
+(5, 'Minecraft', 2011, 'Mojang Studios', 'Mojang', 'Todos +10', 'Aventura', 'Un jugador Multijugador');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

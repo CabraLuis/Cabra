@@ -1,12 +1,18 @@
 #encabezado {
-    background: #4f3999;
+  background-color: rgba(119, 92, 207, 0.541);
+  color: rgb(49, 210, 247);
 }
 
 html {
-    height: 100vh;
+  height: 100vh;
 }
 
 body {
-    background: rgb(49,210,247);
-    background: no-repeat linear-gradient(0deg, rgba(49,210,247,1) 0%, rgba(136,108,228,1) 40%); 
+  background: rgb(49, 210, 247);
+  background: no-repeat
+    linear-gradient(0deg, rgba(49, 210, 247, 1) 0%, rgba(136, 108, 228, 1) 40%);
+}
+
+.gridjs-table {
+  min-width: 100%;
 }

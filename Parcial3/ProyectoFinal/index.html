@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Catálogo de Videojuegos</title>
     <link rel="stylesheet" href="css/style.css" />
-    <link href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
+    <link
+      href="../../node_modules/gridjs/dist/theme/mermaid.min.css"
+      rel="stylesheet"
+    />
+
     <link
       rel="stylesheet"
       href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css"
@@ -17,40 +21,35 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg" id="encabezado">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Catálogo de Videojuegos</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <form class="d-flex" role="search" id="idBusqueda" name="idBusqueda">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
-        </div>
-      </div>
+    <nav
+      class="navbar navbar-expand-lg d-flex justify-content-center"
+      id="encabezado"
+    >
+      <a class="navbar-brand fw-bold fs-3" href="#">Catálogo de Videojuegos</a>
     </nav>
+
     <div class="container-fluid">
       <form id="formulario">
         <div class="row">
-          <div class="form-group col-sm-12 col-md-2 col-lg-1">
+          <div class="form-group col-sm-12 col-md-1 col-lg-1">
             <label for="idJuego" class="form-label fw-bold">ID</label>
             <input
               type="text"
               class="form-control"
               id="idJuego"
               name="juegoID"
+              required
             />
           </div>
 
-          <div class="form-group col-sm-12 col-md-8 col-lg-10">
+          <div class="form-group col-sm-12 col-md-9 col-lg-10">
             <label for="idNombre" class="form-label fw-bold">Nombre</label>
             <input
               type="text"
               class="form-control"
               id="idNombre"
               name="nombreID"
+              required
             />
           </div>
 
@@ -66,7 +65,7 @@
         </div>
 
         <div class="row">
-          <div class="form-group col-sm-12 col-md-4 col-lg-4">
+          <div class="form-group col-sm-12 col-md-5 col-lg-5">
             <label for="idDesarrollador" class="form-label fw-bold"
               >Desarrollador</label
             >
@@ -78,7 +77,7 @@
             />
           </div>
 
-          <div class="form-group col-sm-12 col-md-4 col-lg-4">
+          <div class="form-group col-sm-12 col-md-5 col-lg-5">
             <label for="idDistribuidor" class="form-label fw-bold"
               >Distribuidor</label
             >
@@ -90,9 +89,9 @@
             />
           </div>
 
-          <div class="form-group col-sm-12 col-md-4 col-lg-4">
+          <div class="form-group col-sm-12 col-md-2 col-lg-2">
             <label for="idClasificacion" class="form-label fw-bold"
-              >Clasificación ESRB</label
+              >Clasificación</label
             >
             <select
               class="form-select"
@@ -154,31 +153,90 @@
             </div>
           </div>
         </div>
-
-        <div id="botones" class="d-grid gap-2 mx-auto w-75">
-          <button type="button" class="btn btn-success mt-2" id="registrarBtn">
+        <div class="btn-group flex-wrap mt-1 d-flex justify-content-center">
+          <button type="button" class="btn btn-success" id="registrarBtn">
             Registrar
             <i class="bi bi-upload"></i>
           </button>
+
           <button type="button" class="btn btn-info" id="consultarBtn">
             Consultar
             <i class="bi bi-download"></i>
           </button>
+
           <button type="button" class="btn btn-danger" id="eliminarBtn">
             Eliminar
             <i class="bi bi-trash3"></i>
           </button>
+
           <button type="button" class="btn btn-primary" id="editarBtn">
             Editar
             <i class="bi bi-pencil"></i>
           </button>
-          <button type="button" class="btn btn-primary mb-2" id="editarBtn">
+
+          <button type="button" class="btn btn-dark" id="todosBtn">
             Ver todos
             <i class="bi bi-eye"></i>
           </button>
         </div>
-
       </form>
+    </div>
+    <div
+      id="modalID"
+      class="modal modal-sm fade modal-dialog-scrollable"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body">
+            <form id="busquedaForm">
+              <label for="idBusqueda" class="form-label fw-bold"
+                >Ingrese ID...</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="idBusqueda"
+                name="ID_juego"
+              />
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <button type="button" class="btn btn-primary" id="enviarID">
+              Enviar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      id="modalTodos"
+      class="modal modal-xl fade modal-dialog-scrollable"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div id="datos"></div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="toast-container position-fixed bottom-0 end-0 p-3">
@@ -348,6 +406,17 @@
             </div>
           </div>
           <div class="modal-footer">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="generos_todosChk"
+                value="Todos"
+              />
+              <label class="form-check-label" for="generos_todosChk">
+                Seleccionar todos
+              </label>
+            </div>
             <button
               type="button"
               class="btn btn-secondary"
@@ -355,7 +424,12 @@
             >
               Cerrar
             </button>
-            <button type="button" class="btn btn-primary" id="generoGuardarBtn" data-bs-dismiss="modal">
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="generoGuardarBtn"
+              data-bs-dismiss="modal"
+            >
               Guardar
             </button>
           </div>
@@ -430,10 +504,10 @@
               <input
                 class="form-check-input"
                 type="checkbox"
-                id="todosChk"
+                id="modos_todosChk"
                 value="Todos"
               />
-              <label class="form-check-label" for="todosChk">
+              <label class="form-check-label" for="modos_todosChk">
                 Seleccionar todos
               </label>
             </div>
@@ -444,16 +518,20 @@
             >
               Cerrar
             </button>
-            <button type="button" class="btn btn-primary" id="modoGuardarBtn" data-bs-dismiss="modal">
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="modoGuardarBtn"
+              data-bs-dismiss="modal"
+            >
               Guardar
             </button>
           </div>
         </div>
       </div>
     </div>
-    <div id="datos"></div>
-    <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
     <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../node_modules/gridjs/dist/gridjs.umd.js"></script>
     <script src="javascript/main.js"></script>
   </body>
 </html>

@@ -1,23 +1,17 @@
-new gridjs.Grid({
-  columns: ["ID", "Nombre", "Año de Salida","Desarrollador","Distribuidor","Clasificación","Generos","Modos"],
-  server:{
-    url: "/Cabra/Parcial3/ProyectoFinal/php/consultar.php",
-    then: data => data.map(item => [item.id, item.nombre, item.salida, item.desarrollador, item.distribuidor, item.clasificacion, item.generos, item.modos])
-  }
-}).render(document.getElementById("datos"));
-
 const botonRegistrar = document.getElementById("registrarBtn");
-const botonConsultar = document.getElementById("consultarBtn");
+const botonBusqueda = document.getElementById("consultarBtn");
 const botonEliminar = document.getElementById("eliminarBtn");
 const botonEditar = document.getElementById("editarBtn");
-
+let enviarID = document.getElementById("enviarID");
 // Las funciones con parámetros necesité enviarlas con una función flecha, de lo contrario se invocan automáticamente al iniciar el script
-// Botones para mostrar modales
 document.getElementById("generoBtn").addEventListener("click", () => {
   mostrarModal("Generos");
 });
 document.getElementById("modosBtn").addEventListener("click", () => {
   mostrarModal("Modos");
+});
+document.getElementById("todosBtn").addEventListener("click", () => {
+  mostrarModal("Todos");
 });
 
 // Botones para leer checkboxes
@@ -27,16 +21,30 @@ document.getElementById("generoGuardarBtn").addEventListener("click", () => {
 document.getElementById("modoGuardarBtn").addEventListener("click", () => {
   getCheckbox("modo");
 });
-document.getElementById("todosChk").addEventListener("click", marcarTodosCheck);
+document
+  .getElementById("generos_todosChk")
+  .addEventListener("click", generosTodosCheck);
+document
+  .getElementById("modos_todosChk")
+  .addEventListener("click", modosTodosCheck);
 
 // Botones para operaciones en la DB
-// El método del botón registrarBtn se envía mediante POST en la etiqueta <form> del HTML
 botonRegistrar.addEventListener("click", registrar);
-botonConsultar.addEventListener("click", consultar);
-botonEliminar.addEventListener("click", eliminar);
+
+botonBusqueda.addEventListener("click", () => {
+  enviarID.removeEventListener("click", eliminar);
+  enviarID.addEventListener("click", consultar);
+  mostrarModal("ID");
+});
+
+botonEliminar.addEventListener("click", () => {
+  enviarID.removeEventListener("click", consultar);
+  enviarID.addEventListener("click", eliminar);
+  mostrarModal("ID");
+});
+
 botonEditar.addEventListener("click", editar);
 botonEditar.disabled = true;
-botonEliminar.disabled = true;
 
 // Mostrar notificaciones
 function mostrarNotificacion(tipo) {
@@ -53,8 +61,14 @@ function mostrarModal(tipo) {
   modal.show();
 }
 
-// Marcar todos los checkboxes de los modos
-function marcarTodosCheck() {
+// Marcar todos los checkboxes
+function generosTodosCheck() {
+  let checkboxes = document.getElementsByName("genero");
+  for (var checkbox of checkboxes) {
+    checkbox.checked = this.checked;
+  }
+}
+function modosTodosCheck() {
   let checkboxes = document.getElementsByName("modo");
   for (var checkbox of checkboxes) {
     checkbox.checked = this.checked;
@@ -74,9 +88,39 @@ function getCheckbox(name) {
   document.getElementById(name + "ID").value = resultado.slice(0, -1);
 }
 
-function limpiarForm() {
-  document.getElementById('formulario').reset();
+function actualizarForm() {
+  document.getElementById("formulario").reset();
+  document.getElementById("busquedaForm").reset();
+  botonEditar.disabled = true;
+  grid.forceRender();
 }
+
+let grid = new gridjs.Grid({
+  columns: [
+    "ID",
+    "Nombre",
+    "Año de Salida",
+    "Desarrollador",
+    "Distribuidor",
+    "Clasificación",
+    "Generos",
+    "Modos",
+  ],
+  server: {
+    url: "/Cabra/Parcial3/ProyectoFinal/php/todos.php",
+    then: (data) =>
+      data.map((item) => [
+        item.id,
+        item.nombre,
+        item.salida,
+        item.desarrollador,
+        item.distribuidor,
+        item.clasificacion,
+        item.generos,
+        item.modos,
+      ]),
+  },
+}).render(document.getElementById("datos"));
 
 async function registrar() {
   let datosFormulario = new FormData(document.getElementById("formulario"));
@@ -84,8 +128,11 @@ async function registrar() {
     method: "POST",
     body: datosFormulario,
   });
-  mostrarNotificacion("notificacionRegistrar");
-  limpiarForm();
+  let dato = await respuesta.json();
+  if (dato == "Exito") {
+    mostrarNotificacion("notificacionRegistrar");
+    actualizarForm();
+  }
 }
 // Traer datos de la DB
 async function consultar() {
@@ -127,19 +174,21 @@ async function consultar() {
   }
   mostrarNotificacion("notificacionConsultar");
   botonEditar.disabled = false;
-  botonEliminar.disabled = false;
 }
 
 // Eliminar datos de la DB
 async function eliminar() {
-  let datosFormulario = new FormData(document.getElementById("formulario"));
+  let datosFormulario = new FormData(document.getElementById("busquedaForm"));
   let respuesta = await fetch("php/eliminar.php", {
     method: "POST",
     body: datosFormulario,
   });
-  mostrarNotificacion("notificacionEliminar");
-  botonEliminar.disabled = true;
-  limpiarForm();
+  let dato = await respuesta.json();
+
+  if (dato == "Exito") {
+    mostrarNotificacion("notificacionEliminar");
+    actualizarForm();
+  }
 }
 
 async function editar() {
@@ -148,7 +197,10 @@ async function editar() {
     method: "POST",
     body: datosFormulario,
   });
-  mostrarNotificacion("notificacionEditar");
-  botonEditar.disabled = true;
-  limpiarForm();
+  let dato = await respuesta.json();
+
+  if (dato == "Exito") {
+    mostrarNotificacion("notificacionEditar");
+    actualizarForm();
+  }
 }

@@ -11,7 +11,9 @@ $generos = $_POST['generoID'];
 $modos = $_POST['modoID'];
 
 $insert = "INSERT INTO juego (id,nombre,salida,desarrollador,distribuidor,clasificacion,generos,modos) VALUES ($id,'$nombre',$salida,'$desarrollador','$distribuidor','$clasificacion','$generos','$modos')" or die("Error de insert");
-$register = mysqli_query($con,$insert);
+$register = mysqli_query($con, $insert) or die("Problema en insert");
 
+if ($register) {
+    echo json_encode("Exito");
+}
 mysqli_close($con);
-?>

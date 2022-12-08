@@ -12,5 +12,7 @@ $modos = $_POST['modoID'];
 
 $update = "UPDATE juego SET nombre='$nombre',salida='$salida',desarrollador='$desarrollador',distribuidor='$distribuidor',clasificacion='$clasificacion',generos='$generos',modos='$modos' WHERE id=$id";
 $register = mysqli_query($con, $update);
-
+if ($register) {
+    echo json_encode("Exito");
+}
 mysqli_close($con);

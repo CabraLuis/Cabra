@@ -1,11 +1,9 @@
 <?php
 include 'conectar.php';
 
-$id = $_POST['ID_juego'];
-
-$request = "DELETE FROM juego where id=$id";
+$request = "select * from juego";
 $register = mysqli_query($con, $request) or die("Problema en select");
-if ($register) {
-    echo json_encode("Exito");
-}
+$result = mysqli_fetch_all($register, MYSQLI_ASSOC);
+
 mysqli_close($con);
+echo json_encode($result);
